@@ -20,7 +20,12 @@ async fn main() {
     let word = std::env::args().nth(1);
 
     if let Some(word) = word {
-        println!("{:?}", get_word_definition(word).await)
+        let definition = get_word_definition(word).await;
+        for meaning in definition.meanings {
+            for definition in meaning.definitions {
+                println!("{}", definition.definition)
+            }
+        }
     }
 }
 
