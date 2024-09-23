@@ -29,12 +29,12 @@ async fn main() {
     }
 }
 
-fn resource_uri(word: String) -> String {
+fn format_resource_uri(word: String) -> String {
     format!("{}/{}", API_ENDPOINT, word)
 }
 
 async fn get_word_definition(word: String) -> ParsedResponse {
-    let url = resource_uri(word);
+    let url = format_resource_uri(word);
     let response = reqwest::get(url).await.expect("Could not fetch resource.");
 
     let parsed_response: Vec<ParsedResponse> =
