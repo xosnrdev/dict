@@ -2,17 +2,17 @@ use anyhow::{Context, Result};
 
 const API_ENDPOINT: &str = "https://api.dictionaryapi.dev/api/v2/entries/en_US";
 
-#[derive(serde::Deserialize, Debug)]
+#[derive(serde::Deserialize)]
 struct ParsedResponse {
     meanings: Vec<Meanings>,
 }
 
-#[derive(serde::Deserialize, Debug)]
+#[derive(serde::Deserialize)]
 struct Meanings {
     definitions: Vec<Definition>,
 }
 
-#[derive(serde::Deserialize, Debug)]
+#[derive(serde::Deserialize)]
 struct Definition {
     definition: String,
 }
